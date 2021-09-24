@@ -1,3 +1,5 @@
+import java.lang.module.FindException;
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class MyMain {
@@ -7,8 +9,14 @@ public class MyMain {
     //     4
     //     2
     public static void printEvensBackwards(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return;
+        for (int i = arr.length -1; i>0; i--){
+            if (arr[i]%2 == 0){
+                System.out.println(arr[i]);
+            }
+            else{
+                System.out.println("hello");
+            }
+        }
     }
 
     // Next, write a method that checks if an array is sorted in
@@ -18,8 +26,22 @@ public class MyMain {
     //     isIncreasing([1, 1, 3, 6, 7]) => false (because 1 is not > 1)
     //     isIncreasing([1, 2, 3, 2, 4, 5, 8]) => false
     public static boolean isIncreasing(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return false;
+        int check = 0;
+        int last = 0;
+        for (int i = 0; i < arr.length; i++){
+            if (check < arr[i]) {
+                check = arr[i];
+            }
+            else {
+                last = -1;
+            }
+            }
+        if(last == -1){
+            return false;
+                }
+        else{
+            return true;
+        }
     }
 
     // (Maybe Optional):
@@ -39,8 +61,20 @@ public class MyMain {
     // Ex: containsDuplicates([1, 2, 3, 2, 1]) => true
     //     containsDuplicates([7, 2, 3, 4, 1, 5]) => false
     public static boolean containsDuplicates(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return false;
+        int check = 0;
+        for (int i = 0; i < arr.length; i++){
+            for(int z = 0; z < arr.length; z++){
+                if (arr[z] == arr[i] && z!= i) {
+                    check = 4;
+                }
+            }
+        }
+        if (check == 4){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     // Sorting:
@@ -48,7 +82,24 @@ public class MyMain {
     // to sort our code
     // This algorithm returns the sorted array
     public static int[] bubbleSort(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+        int x = 0;
+        while (x < arr.length){
+            for (int i = 0; i<arr.length-1; i++){
+//                for (int j = 1; j < arr.length; j++){
+                    if (arr[i] > arr[i+1]){
+                        int temp = arr[i];
+                        arr[i] = arr[i+1];
+                        arr[i+1] = temp;
+                        x++;
+                    }
+                    else{
+                        arr[i] = arr[i];
+                        arr[i+1] = arr[i+1];
+                        x++;
+                    }
+//                }
+            }
+        }
         return arr;
     }
 
